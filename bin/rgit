@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-command = ARGV.first
+command, *args = ARGV
 
 if command.nil?
   $stderr.puts "Usage: rgit <command> [<args>]"
@@ -13,4 +13,4 @@ if !File.exist? path_to_command
   exit 1
 end
 
-exec path_to_command
+exec path_to_command, *args
